@@ -44,7 +44,7 @@ const NavBar = () => {
           </Button>
         ) : (
           <div className="hidden md:flex items-center space-x-1">
-            {["Services", "About", "Testimonials", "Contact"].map((item) => (
+            {["Services", "Portfolio", "About", "Testimonials", "Contact"].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`} 
@@ -61,7 +61,7 @@ const NavBar = () => {
 
         {menuOpen && isMobile && (
           <div className="absolute top-full left-0 right-0 bg-futuristic-dark/95 backdrop-blur-xl border-b border-white/10 py-6 px-4 flex flex-col space-y-4 animate-fade-in">
-            {["Services", "About", "Testimonials", "Contact"].map((item) => (
+            {["Services", "Portfolio", "About", "Testimonials", "Contact"].map((item) => (
               <a 
                 key={item}
                 href={`#${item.toLowerCase()}`} 

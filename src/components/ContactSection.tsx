@@ -66,7 +66,7 @@ const ContactSection = () => {
             <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white/10 to-white/5 p-8 rounded-xl border border-white/20 hover:shadow-glow transition-all duration-500">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                     Name
                   </label>
                   <Input
@@ -78,7 +78,7 @@ const ContactSection = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                     Email
                   </label>
                   <Input
@@ -92,7 +92,7 @@ const ContactSection = () => {
               </div>
               
               <div className="mb-6">
-                <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-white mb-2">
                   Subject
                 </label>
                 <Input
@@ -105,7 +105,7 @@ const ContactSection = () => {
               </div>
               
               <div className="mb-8">
-                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                   Message
                 </label>
                 <Textarea
@@ -140,7 +140,7 @@ const ContactSection = () => {
                       <h4 className="font-semibold text-white">{item.title}</h4>
                       <a
                         href={item.link}
-                        className="text-white/60 hover:text-futuristic-purple transition-colors"
+                        className="text-white/80 hover:text-futuristic-purple transition-colors"
                       >
                         {item.detail}
                       </a>
@@ -151,7 +151,7 @@ const ContactSection = () => {
               
               <div className="mt-10 pt-8 border-t border-white/10">
                 <h3 className="text-xl font-bold text-white mb-4">Office Hours</h3>
-                <p className="text-white/60">
+                <p className="text-white/80">
                   Monday - Friday: 9:00 AM - 6:00 PM<br />
                   Weekend: By appointment only
                 </p>

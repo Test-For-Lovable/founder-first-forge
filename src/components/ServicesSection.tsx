@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Strategy, Code, Users } from "lucide-react";
+import { BarChart2, Code, Users } from "lucide-react";
 
 const services = [
   {
-    icon: Strategy,
+    icon: BarChart2,
     title: "Strategy Consulting",
     description: "Develop a clear roadmap for your technical journey, from market analysis to technology selection.",
     details: "I help non-technical founders navigate the complex tech landscape with confidence, creating actionable strategies that align with your business goals."

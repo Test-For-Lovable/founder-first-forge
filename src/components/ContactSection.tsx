@@ -3,15 +3,15 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Zap, Send } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 
 const ContactInfo = [
   {
     icon: Mail,
     title: "Email",
-    detail: "contact@techconsult.com",
-    link: "mailto:contact@techconsult.com"
+    detail: "contact@techvision.com",
+    link: "mailto:contact@techvision.com"
   },
   {
     icon: Phone,
@@ -33,97 +33,114 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast({
-      title: "Form submitted",
+      title: "Message Sent",
       description: "Thank you for reaching out. I'll get back to you shortly.",
     });
   };
 
   return (
-    <section id="contact" className="py-20 bg-consulting-light">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-consulting-navy mb-4">Get In Touch</h2>
-          <p className="text-lg text-consulting-gray max-w-2xl mx-auto">
-            Ready to transform your technical vision into reality? Let's discuss how I can help you achieve your goals.
+    <section id="contact" className="py-24 relative bg-futuristic-midnight overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-radial from-futuristic-purple/10 to-transparent opacity-30"></div>
+      <div className="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-futuristic-cyan/10 filter blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+            <Zap className="h-4 w-4 text-futuristic-neonGreen" />
+            <span className="text-sm text-white/90">Let's Connect</span>
+          </div>
+          
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Ready to <span className="text-gradient">Transform</span> Your Vision?
+          </h2>
+          
+          <p className="text-lg text-white/70 max-w-2xl">
+            Reach out to discuss how we can work together to bring your technical vision to life.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+          <div className="lg:col-span-2 backdrop-blur-sm">
+            <form onSubmit={handleSubmit} className="bg-gradient-to-br from-white/10 to-white/5 p-8 rounded-xl border border-white/20 hover:shadow-glow transition-all duration-500">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-consulting-navy mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-2">
                     Name
                   </label>
                   <Input
                     id="name"
                     type="text"
                     placeholder="Your name"
-                    className="w-full"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                     required
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-consulting-navy mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-2">
                     Email
                   </label>
                   <Input
                     id="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="w-full"
+                    className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                     required
                   />
                 </div>
               </div>
               
               <div className="mb-6">
-                <label htmlFor="subject" className="block text-sm font-medium text-consulting-navy mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-white/80 mb-2">
                   Subject
                 </label>
                 <Input
                   id="subject"
                   type="text"
                   placeholder="How can I help you?"
-                  className="w-full"
+                  className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                   required
                 />
               </div>
               
-              <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-consulting-navy mb-2">
+              <div className="mb-8">
+                <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-2">
                   Message
                 </label>
                 <Textarea
                   id="message"
                   placeholder="Tell me about your project..."
-                  className="w-full min-h-[150px]"
+                  className="w-full min-h-[150px] bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                   required
                 />
               </div>
               
-              <Button type="submit" className="bg-consulting-purple hover:bg-consulting-navy text-white w-full md:w-auto px-8">
+              <Button 
+                type="submit" 
+                className="bg-gradient-to-r from-futuristic-purple to-futuristic-blue hover:shadow-neon text-white w-full md:w-auto px-8 py-6 flex items-center justify-center gap-2 group"
+              >
                 Send Message
+                <Send className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Button>
             </form>
           </div>
           
           <div>
-            <div className="bg-white p-8 rounded-xl shadow-lg h-full">
-              <h3 className="text-xl font-bold text-consulting-navy mb-6">Contact Information</h3>
+            <div className="bg-gradient-to-br from-white/10 to-white/5 p-8 rounded-xl border border-white/20 h-full hover:shadow-glow transition-all duration-500 backdrop-blur-sm">
+              <h3 className="text-xl font-bold text-white mb-8">Contact Information</h3>
               
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {ContactInfo.map((item, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="w-10 h-10 rounded-full bg-consulting-purple/10 flex items-center justify-center mr-4">
-                      <item.icon className="h-5 w-5 text-consulting-purple" />
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-futuristic-purple/20 to-futuristic-purple/5 flex items-center justify-center mr-4 border border-white/10">
+                      <item.icon className="h-5 w-5 text-futuristic-purple" />
                     </div>
                     <div>
-                      <h4 className="font-semibold text-consulting-navy">{item.title}</h4>
+                      <h4 className="font-semibold text-white">{item.title}</h4>
                       <a
                         href={item.link}
-                        className="text-consulting-gray hover:text-consulting-purple transition-colors"
+                        className="text-white/60 hover:text-futuristic-purple transition-colors"
                       >
                         {item.detail}
                       </a>
@@ -132,9 +149,9 @@ const ContactSection = () => {
                 ))}
               </div>
               
-              <div className="mt-8 pt-8 border-t border-gray-200">
-                <h3 className="text-xl font-bold text-consulting-navy mb-4">Office Hours</h3>
-                <p className="text-consulting-gray">
+              <div className="mt-10 pt-8 border-t border-white/10">
+                <h3 className="text-xl font-bold text-white mb-4">Office Hours</h3>
+                <p className="text-white/60">
                   Monday - Friday: 9:00 AM - 6:00 PM<br />
                   Weekend: By appointment only
                 </p>

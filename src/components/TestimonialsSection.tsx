@@ -1,53 +1,90 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Star } from "lucide-react";
+import { Star, Zap, Quote } from "lucide-react";
 
 const testimonials = [
   {
     name: "Sarah Johnson",
     position: "CEO, TechStartup Inc.",
     content: "He understood our problem even better than we did. Within weeks, we had a clear technical roadmap that aligned perfectly with our business goals.",
-    rating: 5
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
   },
   {
     name: "Michael Chen",
     position: "Founder, GrowthApp",
     content: "Working with him was transformative for our business. He took our idea and made it real, navigating complex technical decisions with ease.",
-    rating: 5
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
   },
   {
     name: "Rebecca Torres",
     position: "COO, Enterprise Solutions",
     content: "His ability to translate technical concepts into business language saved us from making costly mistakes. The MVP scoping process was invaluable.",
-    rating: 5
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
   }
 ];
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-consulting-navy mb-4">What Clients Say</h2>
-          <p className="text-lg text-consulting-gray max-w-2xl mx-auto">
+    <section id="testimonials" className="py-24 relative bg-futuristic-dark overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 rounded-full bg-futuristic-purple/10 filter blur-3xl"></div>
+      <div className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-futuristic-cyan/10 filter blur-3xl"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        <div className="flex flex-col items-center text-center mb-16">
+          <div className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
+            <Zap className="h-4 w-4 text-futuristic-neonGreen" />
+            <span className="text-sm text-white/90">Client Experiences</span>
+          </div>
+          
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            What <span className="text-gradient">Clients Say</span>
+          </h2>
+          
+          <p className="text-lg text-white/70 max-w-2xl">
             Don't just take my word for it. Here's what clients have to say about their experience working with me.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-none shadow-lg h-full">
-              <CardContent className="pt-6">
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-consulting-purple text-consulting-purple" />
-                  ))}
-                </div>
-                <p className="text-consulting-gray mb-6 italic">"{testimonial.content}"</p>
-                <div>
-                  <h4 className="font-semibold text-consulting-navy">{testimonial.name}</h4>
-                  <p className="text-sm text-consulting-gray">{testimonial.position}</p>
+            <Card 
+              key={index}
+              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 overflow-hidden h-full hover:shadow-glow transition-all duration-500"
+            >
+              <CardContent className="p-8 relative">
+                <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-futuristic-purple/30 to-futuristic-cyan/30 rounded-full blur-xl"></div>
+                
+                <div className="relative z-10">
+                  <div className="flex mb-6">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="h-5 w-5 fill-futuristic-pink text-futuristic-pink" />
+                    ))}
+                  </div>
+                  
+                  <div className="mb-6 relative">
+                    <Quote className="absolute -top-2 -left-2 h-6 w-6 text-futuristic-purple/50" />
+                    <p className="text-white/80 pl-6 italic">"{testimonial.content}"</p>
+                  </div>
+                  
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-futuristic-purple/30">
+                      <img 
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-white">{testimonial.name}</h4>
+                      <p className="text-sm text-white/60">{testimonial.position}</p>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>

@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Zap, ArrowRight, Code } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -32,9 +33,11 @@ const HeroSection = () => {
                 Book a Consultation
                 <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" className="border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white px-6 py-6 text-lg rounded-xl flex items-center gap-2">
-                <Code className="h-5 w-5" />
-                View Portfolio
+              <Button variant="outline" className="border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white px-6 py-6 text-lg rounded-xl flex items-center gap-2" asChild>
+                <Link to="/portfolio">
+                  <Code className="h-5 w-5" />
+                  View Portfolio
+                </Link>
               </Button>
             </div>
           </div>

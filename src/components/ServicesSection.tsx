@@ -43,7 +43,7 @@ const ServicesSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => <Card key={index} className={`group relative overflow-hidden border-none bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm hover:shadow-glow transition-all duration-500 h-full`} onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
               <div className="absolute inset-0 bg-gradient-to-r from-futuristic-purple/20 to-futuristic-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-futuristic-purple/50 to-futuristic-cyan/50 rounded-xl opacity-0 group-hover:opacity-30 blur-sm transition-opacity bg-futuristic-blue"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-futuristic-purple/50 to-futuristic-cyan/50 rounded-xl opacity-0 group-hover:opacity-30 blur-sm transition-opacity bg-inherit"></div>
               
               <CardHeader className="pb-2 relative z-10">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-futuristic-purple/20 to-futuristic-purple/5 flex items-center justify-center mb-4 group-hover:animate-pulse-slow border border-white/10 backdrop-blur-sm">

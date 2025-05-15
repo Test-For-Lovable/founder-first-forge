@@ -69,7 +69,7 @@ const TestimonialsSection = () => {
                   
                   <div className="mb-6 relative">
                     <Quote className="absolute -top-2 -left-2 h-6 w-6 text-futuristic-purple/50" />
-                    <p className="text-white pl-6 italic">"{testimonial.content}"</p>
+                    <p className="text-white/90 pl-6 italic">"{testimonial.content}"</p>
                   </div>
                   
                   <div className="flex items-center gap-4">

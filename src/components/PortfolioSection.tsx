@@ -76,12 +76,12 @@ const PortfolioSection = () => {
                   
                   <div className="mb-2 text-white/80 text-sm font-medium">{item.category}</div>
                   <h3 className="text-xl font-bold text-white mb-4">{item.title}</h3>
-                  <p className="text-white mb-5">{item.description}</p>
+                  <p className="text-white/90 mb-5">{item.description}</p>
                   
                   <div className="mt-auto">
-                    <div className="p-3 bg-white/5 border border-white/10 rounded-md flex items-center gap-2 mb-3">
+                    <div className="p-3 bg-futuristic-dark/50 border border-white/10 rounded-md flex items-center gap-2 mb-3">
                       <span className="text-futuristic-neonGreen font-medium">Outcome:</span> 
-                      <span className="text-white">{item.outcome}</span>
+                      <span className="text-white/90">{item.outcome}</span>
                     </div>
                     
                     {activeIndex === index && (

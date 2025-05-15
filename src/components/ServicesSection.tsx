@@ -68,7 +68,7 @@ const ServicesSection = () => {
               </CardHeader>
               
               <CardContent className="relative z-10">
-                <p className="text-white mb-4">{service.description}</p>
+                <p className="text-white/90 mb-4">{service.description}</p>
                 <p className="text-sm text-white/80 group-hover:text-white transition-colors">{service.details}</p>
                 
                 {hoveredIndex === index && (

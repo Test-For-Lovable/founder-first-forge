@@ -1,6 +1,8 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { BarChart2, Code, Users, Zap } from "lucide-react";
+
 const services = [{
   icon: BarChart2,
   title: "Strategy Consulting",
@@ -17,6 +19,7 @@ const services = [{
   description: "Collaborative sessions to extract, refine, and document your vision into implementable requirements.",
   details: "Structured workshops that bridge the gap between your business vision and technical implementation, ensuring everyone is aligned on the path forward."
 }];
+
 const ServicesSection = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   return <section id="services" className="py-24 relative bg-futuristic-dark overflow-hidden">
@@ -41,9 +44,9 @@ const ServicesSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service, index) => <Card key={index} className={`group relative overflow-hidden border-none bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm hover:shadow-glow transition-all duration-500 h-full`} onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
+          {services.map((service, index) => <Card key={index} className={`group relative overflow-hidden bg-gradient-to-br from-futuristic-midnight/90 to-futuristic-dark border border-futuristic-purple/30 hover:shadow-glow transition-all duration-500 h-full`} onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)}>
               <div className="absolute inset-0 bg-gradient-to-r from-futuristic-purple/20 to-futuristic-cyan/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-futuristic-purple/50 to-futuristic-cyan/50 rounded-xl opacity-0 group-hover:opacity-30 blur-sm transition-opacity bg-inherit"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-futuristic-purple/50 to-futuristic-cyan/50 rounded-xl opacity-0 group-hover:opacity-30 blur-sm transition-opacity"></div>
               
               <CardHeader className="pb-2 relative z-10">
                 <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-futuristic-purple/20 to-futuristic-purple/5 flex items-center justify-center mb-4 group-hover:animate-pulse-slow border border-white/10 backdrop-blur-sm">
@@ -53,7 +56,7 @@ const ServicesSection = () => {
               </CardHeader>
               
               <CardContent className="relative z-10">
-                <p className="text-white/90 mb-4">{service.description}</p>
+                <p className="text-white mb-4">{service.description}</p>
                 <p className="text-sm text-white/80 group-hover:text-white transition-colors">{service.details}</p>
                 
                 {hoveredIndex === index && <div className="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-futuristic-purple/20 border border-futuristic-purple/30 flex items-center justify-center animate-fade-in">

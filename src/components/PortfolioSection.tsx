@@ -62,7 +62,7 @@ const PortfolioSection = () => {
           {portfolioItems.map((item, index) => (
             <Card 
               key={index}
-              className={`bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 overflow-hidden h-full transition-all duration-500 hover:transform hover:scale-105 hover:shadow-neon group`}
+              className={`bg-gradient-to-br from-futuristic-midnight/90 to-futuristic-dark border border-futuristic-purple/30 overflow-hidden h-full transition-all duration-500 hover:transform hover:scale-105 hover:shadow-neon group`}
               onMouseEnter={() => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
             >
@@ -79,9 +79,9 @@ const PortfolioSection = () => {
                   <p className="text-white/90 mb-5">{item.description}</p>
                   
                   <div className="mt-auto">
-                    <div className="p-3 bg-futuristic-dark/50 border border-white/10 rounded-md flex items-center gap-2 mb-3">
+                    <div className="p-3 bg-gradient-to-br from-futuristic-midnight/90 to-futuristic-dark border border-futuristic-purple/30 rounded-md flex items-center gap-2 mb-3">
                       <span className="text-futuristic-neonGreen font-medium">Outcome:</span> 
-                      <span className="text-white/90">{item.outcome}</span>
+                      <span className="text-white">{item.outcome}</span>
                     </div>
                     
                     {activeIndex === index && (

@@ -55,7 +55,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index}
-              className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 overflow-hidden h-full hover:shadow-glow transition-all duration-500"
+              className="bg-gradient-to-br from-futuristic-midnight/90 to-futuristic-dark border border-futuristic-purple/30 overflow-hidden h-full hover:shadow-glow transition-all duration-500"
             >
               <CardContent className="p-8 relative">
                 <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-futuristic-purple/30 to-futuristic-cyan/30 rounded-full blur-xl"></div>
@@ -69,7 +69,7 @@ const TestimonialsSection = () => {
                   
                   <div className="mb-6 relative">
                     <Quote className="absolute -top-2 -left-2 h-6 w-6 text-futuristic-purple/50" />
-                    <p className="text-white/90 pl-6 italic">"{testimonial.content}"</p>
+                    <p className="text-white pl-6 italic">"{testimonial.content}"</p>
                   </div>
                   
                   <div className="flex items-center gap-4">

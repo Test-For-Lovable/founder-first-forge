@@ -21,16 +21,16 @@ const HeroSection = () => {
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight animate-fade-in" style={{animationDelay: "400ms"}}>
-              Technical <span className="text-gradient">Expertise</span> for the Non-Technical <span className="text-gradient">Founder</span>
+              Usama's <span className="text-gradient">Technical Expertise</span> for Ambitious <span className="text-gradient">Founders</span>
             </h1>
             
             <p className="text-xl text-white/70 max-w-xl animate-fade-in" style={{animationDelay: "600ms"}}>
-              Translating your vision into technological reality with strategic consulting for ambitious founders and growing businesses.
+              Transforming business visions into technological reality with strategic consulting for ambitious founders, startups, and established enterprises.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5 animate-fade-in" style={{animationDelay: "800ms"}}>
               <Button className="group bg-futuristic-purple hover:bg-futuristic-purple/90 text-white px-6 py-6 text-lg rounded-xl flex items-center gap-2 transition-all duration-300 hover:shadow-neon">
-                Book a Consultation
+                Schedule a Consultation
                 <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" className="border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 text-white px-6 py-6 text-lg rounded-xl flex items-center gap-2" asChild>
@@ -51,7 +51,7 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-gradient-conic from-futuristic-purple/20 via-transparent to-futuristic-cyan/20 opacity-30"></div>
                 <img 
                   src="/lovable-uploads/a2ed87e9-43bb-4bd0-8b31-6eba008b9cd2.png" 
-                  alt="Tech Consultant" 
+                  alt="Usama - Tech Consultant" 
                   className="w-64 md:w-80 lg:w-96 object-cover relative z-10"
                 />
               </div>

@@ -7,21 +7,21 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     position: "CEO, TechStartup Inc.",
-    content: "He understood our problem even better than we did. Within weeks, we had a clear technical roadmap that aligned perfectly with our business goals.",
+    content: "Usama understood our problem even better than we did. Within weeks, he delivered a clear technical roadmap that aligned perfectly with our business goals and vision.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
   },
   {
     name: "Michael Chen",
     position: "Founder, GrowthApp",
-    content: "Working with him was transformative for our business. He took our idea and made it real, navigating complex technical decisions with ease.",
+    content: "Working with Usama was transformative for our business. He took our complex idea and brought it to life, navigating technical decisions with exceptional expertise.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
   },
   {
     name: "Rebecca Torres",
     position: "COO, Enterprise Solutions",
-    content: "His ability to translate technical concepts into business language saved us from making costly mistakes. The MVP scoping process was invaluable.",
+    content: "Usama's ability to translate technical concepts into business language saved us from making costly mistakes. His MVP scoping process was invaluable to our success.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=256&q=80"
   }
@@ -39,15 +39,15 @@ const TestimonialsSection = () => {
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
             <Zap className="h-4 w-4 text-futuristic-neonGreen" />
-            <span className="text-sm text-white/90">Client Experiences</span>
+            <span className="text-sm text-white/90">Client Testimonials</span>
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            What <span className="text-gradient">Clients Say</span>
+            What <span className="text-gradient">Clients Say</span> About Usama
           </h2>
           
           <p className="text-lg text-white/70 max-w-2xl">
-            Don't just take my word for it. Here's what clients have to say about their experience working with me.
+            Discover how Usama has helped businesses overcome technical challenges and achieve remarkable results through strategic partnership.
           </p>
         </div>
         

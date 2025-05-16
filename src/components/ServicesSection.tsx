@@ -5,19 +5,19 @@ import { BarChart2, Code, Users, Zap } from "lucide-react";
 
 const services = [{
   icon: BarChart2,
-  title: "Strategy Consulting",
-  description: "Develop a clear roadmap for your technical journey, from market analysis to technology selection.",
-  details: "I help non-technical founders navigate the complex tech landscape with confidence, creating actionable strategies that align with your business goals."
+  title: "Technical Strategy",
+  description: "Usama develops clear roadmaps for your technical journey, from business requirements to technology selection and implementation planning.",
+  details: "He helps non-technical founders navigate the complex tech landscape with confidence, creating actionable strategies that align with business objectives and market demands."
 }, {
   icon: Code,
-  title: "MVP Scoping",
-  description: "Define the perfect scope for your Minimum Viable Product to validate your concept without overspending.",
-  details: "Balance feature richness with development costs to create a compelling product that addresses core user needs while conserving your resources."
+  title: "Full-Stack Development",
+  description: "Usama builds scalable, high-performance applications using modern technologies that balance feature richness with development efficiency.",
+  details: "With expertise in React, Node.js, and cloud architecture, Usama delivers robust solutions that address core user needs while maintaining flexibility for future growth."
 }, {
   icon: Users,
-  title: "Discovery Workshops",
-  description: "Collaborative sessions to extract, refine, and document your vision into implementable requirements.",
-  details: "Structured workshops that bridge the gap between your business vision and technical implementation, ensuring everyone is aligned on the path forward."
+  title: "Team Leadership",
+  description: "Usama helps build and lead high-performing technical teams, establishing best practices and fostering a culture of innovation.",
+  details: "His collaborative workshops bridge the gap between business vision and technical implementation, ensuring all stakeholders are aligned on objectives and execution strategy."
 }];
 
 const ServicesSection = () => {
@@ -39,7 +39,7 @@ const ServicesSection = () => {
           </h2>
           
           <p className="text-lg text-white/70 max-w-2xl">
-            Specialized consulting services helping non-technical founders navigate the tech landscape with confidence and clarity.
+            Usama provides specialized consulting and development services helping businesses navigate the tech landscape with confidence and strategic clarity.
           </p>
         </div>
         

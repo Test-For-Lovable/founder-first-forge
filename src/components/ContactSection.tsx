@@ -10,8 +10,8 @@ const ContactInfo = [
   {
     icon: Mail,
     title: "Email",
-    detail: "contact@techvision.com",
-    link: "mailto:contact@techvision.com"
+    detail: "usama@techvision.com",
+    link: "mailto:usama@techvision.com"
   },
   {
     icon: Phone,
@@ -34,7 +34,7 @@ const ContactSection = () => {
     e.preventDefault();
     toast({
       title: "Message Sent",
-      description: "Thank you for reaching out. I'll get back to you shortly.",
+      description: "Thank you for reaching out. Usama will get back to you shortly.",
     });
   };
 
@@ -53,11 +53,11 @@ const ContactSection = () => {
           </div>
           
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Ready to <span className="text-gradient">Transform</span> Your Vision?
+            Ready to <span className="text-gradient">Transform</span> Your Digital Vision?
           </h2>
           
           <p className="text-lg text-white/70 max-w-2xl">
-            Reach out to discuss how we can work together to bring your technical vision to life.
+            Reach out to discuss how Usama can help bring your technical vision to life with strategic guidance and expert implementation.
           </p>
         </div>
         
@@ -98,7 +98,7 @@ const ContactSection = () => {
                 <Input
                   id="subject"
                   type="text"
-                  placeholder="How can I help you?"
+                  placeholder="How can Usama help you?"
                   className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                   required
                 />
@@ -110,7 +110,7 @@ const ContactSection = () => {
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me about your project or technical challenge..."
                   className="w-full min-h-[150px] bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                   required
                 />
@@ -150,7 +150,7 @@ const ContactSection = () => {
               </div>
               
               <div className="mt-10 pt-8 border-t border-white/10">
-                <h3 className="text-xl font-bold text-white mb-4">Office Hours</h3>
+                <h3 className="text-xl font-bold text-white mb-4">Availability</h3>
                 <p className="text-white/80">
                   Monday - Friday: 9:00 AM - 6:00 PM<br />
                   Weekend: By appointment only

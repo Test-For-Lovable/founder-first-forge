@@ -53,6 +53,12 @@ const HeroSection = () => {
                   src="/lovable-uploads/a2ed87e9-43bb-4bd0-8b31-6eba008b9cd2.png" 
                   alt="Usama - Tech Consultant" 
                   className="w-64 md:w-80 lg:w-96 object-cover relative z-10"
+                  loading="eager"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = 'https://placehold.co/400x400/152535/ffffff?text=Usama';
+                  }}
                 />
               </div>
               

@@ -17,7 +17,7 @@ const HeroSection = () => {
           <div className="w-full md:w-7/12 space-y-8">
             <div className="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 animate-fade-in" style={{animationDelay: "200ms"}}>
               <Zap className="h-4 w-4 text-futuristic-neonGreen" />
-              <span className="text-sm text-white/90">Technical Vision • Strategic Execution</span>
+              <span className="text-sm text-white/90">Usama • Strategic Execution</span>
             </div>
             
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight animate-fade-in" style={{animationDelay: "400ms"}}>
@@ -29,7 +29,10 @@ const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-5 animate-fade-in" style={{animationDelay: "800ms"}}>
-              <Button className="group bg-futuristic-purple hover:bg-futuristic-purple/90 text-white px-6 py-6 text-lg rounded-xl flex items-center gap-2 transition-all duration-300 hover:shadow-neon">
+              <Button 
+                className="group bg-futuristic-purple hover:bg-futuristic-purple/90 text-white px-6 py-6 text-lg rounded-xl flex items-center gap-2 transition-all duration-300 hover:shadow-neon"
+                onClick={() => window.open("http://meetings-eu1.hubspot.com/usama-ahmed", "_blank")}
+              >
                 Schedule a Consultation
                 <ArrowRight className="h-5 w-5 transform group-hover:translate-x-1 transition-transform" />
               </Button>

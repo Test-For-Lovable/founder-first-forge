@@ -30,7 +30,7 @@ const NavBar = () => {
     { name: 'Services', path: '/#services' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Blog', path: '/blog' },
-    { name: 'About', path: '/#about' },
+    { name: 'About', path: location.pathname === '/' ? '/#about' : '/about' },
     { name: 'Testimonials', path: '/#testimonials' },
     { name: 'Contact', path: '/#contact' },
   ];
@@ -38,6 +38,21 @@ const NavBar = () => {
   if (isAdmin) {
     navigationLinks.push({ name: 'Admin', path: '/admin' });
   }
+
+  const isLinkActive = (path: string) => {
+    // For homepage hash links
+    if (path.startsWith('/#') && location.pathname === '/') {
+      return location.hash === path.substring(1);
+    }
+    // For normal links
+    else if (path === '/about' && location.pathname === '/about') {
+      return true;
+    }
+    // For other pages
+    else {
+      return location.pathname === path;
+    }
+  };
 
   return (
     <header 
@@ -63,9 +78,7 @@ const NavBar = () => {
                 key={link.name}
                 to={link.path}
                 className={`text-white hover:text-futuristic-cyan transition-colors ${
-                  location.pathname === link.path || 
-                  (link.path.startsWith('/#') && location.pathname === '/' && location.hash === link.path.substring(1)) 
-                    ? 'text-futuristic-cyan' : ''
+                  isLinkActive(link.path) ? 'text-futuristic-cyan' : ''
                 }`}
               >
                 {link.name}
@@ -93,7 +106,7 @@ const NavBar = () => {
                       key={link.name}
                       to={link.path}
                       className={`text-lg ${
-                        location.pathname === link.path ? 'text-futuristic-cyan' : 'text-white'
+                        isLinkActive(link.path) ? 'text-futuristic-cyan' : 'text-white'
                       }`}
                     >
                       {link.name}

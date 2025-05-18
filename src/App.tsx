@@ -11,6 +11,7 @@ import BlogDetail from "./pages/BlogDetail";
 import Admin from "./pages/Admin";
 import BlogEditor from "./pages/BlogEditor";
 import BlogManagement from "./pages/BlogManagement";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/blog-editor" element={<BlogEditor />} />
           <Route path="/blog-editor/:slug" element={<BlogEditor />} />
           <Route path="/blog-management" element={<BlogManagement />} />
+          <Route path="/about" element={<About />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

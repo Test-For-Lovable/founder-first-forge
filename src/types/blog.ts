@@ -10,5 +10,5 @@ export interface BlogPostType {
   readTime: string;
   coverImage: string;
   tags: string[];
+  isCustom?: boolean;
 }
-

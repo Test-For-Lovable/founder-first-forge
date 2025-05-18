@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen } from "lucide-react";
 import { Link } from 'react-router-dom';
 import BlogPost from './BlogPost';
-import { blogPosts } from '@/data/blogPosts';
+import { useBlogPosts } from '@/hooks/useBlogPosts';
 
 const BlogSection = () => {
+  const { blogPosts, loading } = useBlogPosts();
+  
   // Show only the 2 most recent blog posts
-  const recentPosts = blogPosts.slice(0, 2);
+  const recentPosts = loading ? [] : blogPosts.slice(0, 2);
   
   return (
     <section id="blog" className="relative py-24 bg-futuristic-dark overflow-hidden">
@@ -28,13 +30,23 @@ const BlogSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {recentPosts.map((post, index) => (
-            <BlogPost 
-              key={post.id}
-              post={post}
-              delayIndex={index}
-            />
-          ))}
+          {loading ? (
+            // Show loading skeletons
+            [...Array(2)].map((_, index) => (
+              <div 
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 h-96 rounded-lg animate-pulse"
+              ></div>
+            ))
+          ) : (
+            recentPosts.map((post, index) => (
+              <BlogPost 
+                key={post.id}
+                post={post}
+                delayIndex={index}
+              />
+            ))
+          )}
         </div>
         
         <div className="text-center">
@@ -52,4 +64,3 @@ const BlogSection = () => {
 };
 
 export default BlogSection;
-

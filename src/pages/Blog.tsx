@@ -2,11 +2,12 @@
 import React from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
-import { BlogPostType } from '@/types/blog';
-import { blogPosts } from '@/data/blogPosts';
 import BlogPost from '@/components/BlogPost';
+import { useBlogPosts } from '@/hooks/useBlogPosts';
 
 const Blog = () => {
+  const { blogPosts, loading } = useBlogPosts();
+
   return (
     <div className="min-h-screen bg-futuristic-dark text-white">
       <NavBar />
@@ -20,15 +21,26 @@ const Blog = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post: BlogPostType, index: number) => (
-            <BlogPost 
-              key={post.id} 
-              post={post} 
-              delayIndex={index}
-            />
-          ))}
-        </div>
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3].map((index) => (
+              <div 
+                key={index}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 h-96 rounded-lg animate-pulse"
+              ></div>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogPosts.map((post, index) => (
+              <BlogPost 
+                key={post.id} 
+                post={post} 
+                delayIndex={index}
+              />
+            ))}
+          </div>
+        )}
       </div>
       <Footer />
     </div>
@@ -36,4 +48,3 @@ const Blog = () => {
 };
 
 export default Blog;
-

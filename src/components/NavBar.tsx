@@ -24,6 +24,7 @@ const NavBar = () => {
   const navItems = [
     { title: "Services", path: "/#services" },
     { title: "Portfolio", path: "/portfolio" },
+    { title: "Blog", path: "/blog" },
     { title: "About", path: "/#about" },
     { title: "Testimonials", path: "/#testimonials" },
     { title: "Contact", path: "/#contact" }
@@ -38,8 +39,7 @@ const NavBar = () => {
           <div className="w-8 h-8 rounded-md bg-futuristic-purple flex items-center justify-center shadow-neon group-hover:animate-pulse-slow transition-all">
             <Zap className="h-5 w-5 text-white" />
           </div>
-          <span className="text-gradient">Tech</span>
-          <span>Vision</span>
+          <span className="text-gradient">Usama</span>
         </Link>
         
         {isMobile ? (
@@ -95,3 +95,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+

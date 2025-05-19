@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,13 +29,80 @@ const ContactInfo = [
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({ ...prev, [id]: value }));
+  };
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent",
-      description: "Thank you for reaching out. Usama will get back to you shortly.",
-    });
+    
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: "Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    setIsSubmitting(true);
+    
+    try {
+      // Using EmailJS service
+      const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          service_id: 'service_emailjs',
+          template_id: 'template_contact',
+          user_id: 'YOUR_USER_ID', // Replace with your EmailJS user ID
+          template_params: {
+            to_email: 'usama.ahmed@bitrupt.co',
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject || 'Contact Form Submission',
+            message: formData.message
+          }
+        })
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Message Sent",
+          description: "Thank you for reaching out. Usama will get back to you shortly.",
+        });
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send email');
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "Error",
+        description: "There was a problem sending your message. Please try again later.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -75,6 +142,8 @@ const ContactSection = () => {
                     placeholder="Your name"
                     className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div>
@@ -87,6 +156,8 @@ const ContactSection = () => {
                     placeholder="your@email.com"
                     className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -100,7 +171,8 @@ const ContactSection = () => {
                   type="text"
                   placeholder="How can Usama help you?"
                   className="w-full bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
-                  required
+                  value={formData.subject}
+                  onChange={handleChange}
                 />
               </div>
               
@@ -113,14 +185,17 @@ const ContactSection = () => {
                   placeholder="Tell me about your project or technical challenge..."
                   className="w-full min-h-[150px] bg-white/10 border-white/20 text-white placeholder:text-white/50 focus-visible:ring-futuristic-purple focus-visible:border-futuristic-purple"
                   required
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </div>
               
               <Button 
                 type="submit" 
                 className="bg-gradient-to-r from-futuristic-purple to-futuristic-blue hover:shadow-neon text-white w-full md:w-auto px-8 py-6 flex items-center justify-center gap-2 group"
+                disabled={isSubmitting}
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
                 <Send className="h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </Button>
             </form>

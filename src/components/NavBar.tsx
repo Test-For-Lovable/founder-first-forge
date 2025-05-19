@@ -8,12 +8,8 @@ import { MenuIcon, Zap } from 'lucide-react';
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const [isAdmin, setIsAdmin] = useState(false);
   
   useEffect(() => {
-    const adminAuth = localStorage.getItem('adminAuthenticated');
-    setIsAdmin(adminAuth === 'true');
-    
     const handleScroll = () => {
       if (window.scrollY > 20) {
         setIsScrolled(true);
@@ -34,10 +30,6 @@ const NavBar = () => {
     { name: 'Testimonials', path: '/#testimonials' },
     { name: 'Contact', path: '/#contact' },
   ];
-  
-  if (isAdmin) {
-    navigationLinks.push({ name: 'Admin', path: '/admin' });
-  }
 
   const isLinkActive = (path: string) => {
     // For homepage hash links

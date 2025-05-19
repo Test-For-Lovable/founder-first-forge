@@ -1,5 +1,6 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import { Button } from "@/components/ui/button";
@@ -24,6 +25,18 @@ const iconMap: Record<string, React.ElementType> = {
 const PortfolioManagement = () => {
   const { portfolioItems, removePortfolioItem } = usePortfolioItems();
   const { toast } = useToast();
+  const navigate = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Check authentication
+  useEffect(() => {
+    const adminAuth = localStorage.getItem('adminAuthenticated');
+    if (adminAuth !== 'true') {
+      navigate('/admin');
+      return;
+    }
+    setIsAuthenticated(true);
+  }, [navigate]);
 
   const handleDelete = (id: string) => {
     removePortfolioItem(id);
@@ -33,19 +46,32 @@ const PortfolioManagement = () => {
     });
   };
 
+  if (!isAuthenticated) {
+    return null; // Redirect happens in useEffect
+  }
+
   return (
     <div className="min-h-screen bg-futuristic-dark text-white">
       <NavBar />
       <div className="container mx-auto px-4 py-24">
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Portfolio Management</h1>
-          <Button 
-            className="bg-gradient-to-r from-futuristic-purple to-futuristic-blue text-white hover:shadow-neon transition-all flex items-center gap-2"
-            onClick={() => window.location.href = '/portfolio-editor'}
-          >
-            <Plus className="h-4 w-4" />
-            Add New Portfolio Item
-          </Button>
+          <div className="space-x-4">
+            <Button 
+              variant="outline" 
+              className="border-white/20 text-white"
+              onClick={() => navigate('/admin')}
+            >
+              Back to Admin
+            </Button>
+            <Button 
+              className="bg-gradient-to-r from-futuristic-purple to-futuristic-blue text-white hover:shadow-neon transition-all flex items-center gap-2"
+              onClick={() => navigate('/portfolio-editor')}
+            >
+              <Plus className="h-4 w-4" />
+              Add New Portfolio Item
+            </Button>
+          </div>
         </div>
         
         <div className="bg-futuristic-midnight/60 rounded-xl border border-futuristic-purple/30 p-6">
@@ -85,7 +111,7 @@ const PortfolioManagement = () => {
                           variant="ghost"
                           size="icon"
                           className="bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30"
-                          onClick={() => window.location.href = `/portfolio-editor/${item.id}`}
+                          onClick={() => navigate(`/portfolio-editor/${item.id}`)}
                         >
                           <PenSquare className="h-4 w-4 text-blue-500" />
                         </Button>

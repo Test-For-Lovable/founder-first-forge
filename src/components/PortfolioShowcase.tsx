@@ -2,9 +2,8 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Award, Briefcase, FileCheck, Zap, Trash, PenSquare } from "lucide-react";
+import { ArrowRight, Award, Briefcase, FileCheck, Zap } from "lucide-react";
 import usePortfolioItems from '@/hooks/usePortfolioItems';
-import { useToast } from '@/hooks/use-toast';
 
 const iconMap: Record<string, React.ElementType> = {
   "Award": Award,
@@ -13,18 +12,9 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const PortfolioShowcase = () => {
-  const { portfolioItems, removePortfolioItem } = usePortfolioItems();
+  const { portfolioItems } = usePortfolioItems();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const { toast } = useToast();
   
-  const handleDelete = (id: string) => {
-    removePortfolioItem(id);
-    toast({
-      title: "Portfolio item removed",
-      description: "The portfolio item has been successfully removed.",
-    });
-  };
-
   return (
     <section className="py-24 relative bg-futuristic-dark overflow-hidden">
       {/* Background elements */}
@@ -47,15 +37,6 @@ const PortfolioShowcase = () => {
             A showcase of strategic partnerships that have led to transformative outcomes
             for startups, enterprises, and innovative tech companies.
           </p>
-          
-          <div className="mt-8">
-            <Button 
-              className="bg-gradient-to-r from-futuristic-purple to-futuristic-blue text-white hover:shadow-neon transition-all"
-              onClick={() => window.location.href = '/portfolio-management'}
-            >
-              Manage Portfolio Items
-            </Button>
-          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -88,31 +69,10 @@ const PortfolioShowcase = () => {
                       </div>
                       
                       {activeIndex === index && (
-                        <div className="flex gap-2">
-                          <Button variant="ghost" className="flex-1 justify-between group/btn bg-gradient-to-r from-transparent to-white/5 border border-white/10 hover:bg-white/10 text-white">
-                            View Case Study
-                            <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
-                          </Button>
-                          <Button 
-                            variant="ghost" 
-                            size="icon"
-                            className="bg-red-500/10 hover:bg-red-500/20 border border-red-500/30"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleDelete(item.id);
-                            }}
-                          >
-                            <Trash className="h-4 w-4 text-red-500" />
-                          </Button>
-                          <Button 
-                            variant="ghost" 
-                            size="icon"
-                            className="bg-blue-500/10 hover:bg-blue-500/20 border border-blue-500/30"
-                            onClick={() => window.location.href = `/portfolio-editor/${item.id}`}
-                          >
-                            <PenSquare className="h-4 w-4 text-blue-500" />
-                          </Button>
-                        </div>
+                        <Button variant="ghost" className="mt-2 w-full justify-between group/btn bg-gradient-to-r from-transparent to-white/5 border border-white/10 hover:bg-white/10 text-white">
+                          View Case Study
+                          <ArrowRight className="h-4 w-4 ml-2 transition-transform group-hover/btn:translate-x-1" />
+                        </Button>
                       )}
                     </div>
                   </div>

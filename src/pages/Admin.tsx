@@ -64,7 +64,7 @@ const Admin = () => {
             </Button>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Button 
               onClick={() => navigate('/blog-editor')}
               className="h-32 text-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10"
@@ -77,6 +77,20 @@ const Admin = () => {
               className="h-32 text-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10"
             >
               Manage Existing Blog Posts
+            </Button>
+
+            <Button 
+              onClick={() => navigate('/portfolio-editor')}
+              className="h-32 text-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10"
+            >
+              Create New Portfolio Item
+            </Button>
+            
+            <Button 
+              onClick={() => navigate('/portfolio-management')}
+              className="h-32 text-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10"
+            >
+              Manage Portfolio Items
             </Button>
           </div>
         </div>

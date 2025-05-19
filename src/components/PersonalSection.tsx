@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { FileText, Star, Camera, Compass, Heart, Smile, Ship, Tent, Beach } from "lucide-react";
+import { FileText, Star, Camera, Compass, Heart, Smile, Ship, Tent, Palmtree } from "lucide-react";
 
 const funFacts = [
   {
@@ -18,7 +17,7 @@ const funFacts = [
     fact: "I've camped under the Northern Lights in Iceland - a life-changing experience!"
   },
   {
-    icon: <Beach className="h-5 w-5 text-futuristic-pink" />,
+    icon: <Palmtree className="h-5 w-5 text-futuristic-pink" />,
     fact: "I've tried surfing in four different oceans (and failed spectacularly in all of them)."
   },
   {

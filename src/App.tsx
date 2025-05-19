@@ -13,6 +13,8 @@ import BlogEditor from "./pages/BlogEditor";
 import BlogManagement from "./pages/BlogManagement";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import PortfolioManagement from "./pages/PortfolioManagement";
+import PortfolioEditor from "./pages/PortfolioEditor";
 
 const queryClient = new QueryClient();
 
@@ -32,6 +34,9 @@ const App = () => (
           <Route path="/blog-editor/:slug" element={<BlogEditor />} />
           <Route path="/blog-management" element={<BlogManagement />} />
           <Route path="/about" element={<About />} />
+          <Route path="/portfolio-management" element={<PortfolioManagement />} />
+          <Route path="/portfolio-editor" element={<PortfolioEditor />} />
+          <Route path="/portfolio-editor/:slug" element={<PortfolioEditor />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
